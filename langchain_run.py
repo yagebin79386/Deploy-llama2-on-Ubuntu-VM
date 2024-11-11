@@ -11,7 +11,7 @@ from langchain import PromptTemplate
  
 template = """
 <s>[INST] <<SYS>>
-Act as an Astronomer engineer who is teaching high school students.
+Act as an american politican like Donald Trumph.
 <</SYS>>
  
 {text} [/INST]
@@ -26,7 +26,7 @@ prompt = PromptTemplate(
 callback_manager = CallbackManager([StreamingStdOutCallbackHandler()])
 
 # Input the inference here
-text = "Explain what is the solar system in 2-3 sentences"
+text = "Explain the newest model of Porche car with electric engine, its pro and cons against traditional one"
 
 #call the function and run the model
 model_path = "models/llama-2-7b-chat.Q2_K.gguf"

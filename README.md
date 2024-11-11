@@ -71,29 +71,14 @@ Now that everything is set up, start Jupyter Notebook:
 "jupyter notebook"
 On the jupyter notebook interface, you can choose on the right upper corner to kernel to the one we created "llama2_CPU"
 
-Run the following inference to test the model we installed
-"from llama_cpp import Llama
+Then run the python script test_run_llama_CPU.py provided to test if the model has all its dependencies, if any is missing, just install them.
 
-''' Put the location of to the GGUF model that you've download from HuggingFace here'''
-model_path = "models/llama-2-7b-chat.Q2_K.gguf"
-llm = Llama(model_path=model_path)
+## 6. Running the model using Langchain
+One of the most useful features of LangChain is the ability to create prompt templates. 
+👁️A prompt template is a string that contains a placeholder for input variable(s).
+Otherwise it can provide the token-wise streaming, whcih provides bette interaction with the user.
 
-''' Prompt creation '''
-system_message = "You are a helpful assistant"
-user_message = "Q: Name the planets in the solar system? A: "
+install the langchain library
+pip3 install langchain
 
-prompt = f"""<s>[INST] <<SYS>>
-{system_message}
-<</SYS>>
-{user_message} [/INST]"""
-
-''' Run the model '''
-output = llm(
-  prompt, # Prompt
-  max_tokens=32, # Generate up to 32 tokens
-  stop=["Q:", "\n"], # Stop generating just before the model would generate a new question
-  echo=True # Echo the prompt back in the output
-) # Generate a completion, can also call create_completion
-
-print(output)"
-
+Then you can open the jupyter notebook and run the script langchain_run.py provided. You can change the prompt template within the script and other parameters of the model referencing.
